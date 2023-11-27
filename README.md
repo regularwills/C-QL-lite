@@ -1,5 +1,5 @@
 
-# CQL-Lite Database: A SQL lite clone in C++
+# CQL-Lite Database: A simple SQL-esque data base written in C++
 
 ## Name: <ins> Will May</ins>
 
