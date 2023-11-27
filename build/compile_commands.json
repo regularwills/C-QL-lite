@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -o CMakeFiles/main.dir/main.cpp.o -c /Users/willmbp/Desktop/starter_template/main.cpp",
+  "file": "/Users/willmbp/Desktop/starter_template/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build",
+  "command": "/usr/bin/clang++  -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/include -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -o CMakeFiles/basic_test.dir/_tests/_test_files/basic_test.cpp.o -c /Users/willmbp/Desktop/starter_template/_tests/_test_files/basic_test.cpp",
+  "file": "/Users/willmbp/Desktop/starter_template/_tests/_test_files/basic_test.cpp",
+  "output": "CMakeFiles/basic_test.dir/_tests/_test_files/basic_test.cpp.o"
+},
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build",
+  "command": "/usr/bin/clang++  -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/include -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -o CMakeFiles/testB.dir/_tests/_test_files/testB.cpp.o -c /Users/willmbp/Desktop/starter_template/_tests/_test_files/testB.cpp",
+  "file": "/Users/willmbp/Desktop/starter_template/_tests/_test_files/testB.cpp",
+  "output": "CMakeFiles/testB.dir/_tests/_test_files/testB.cpp.o"
+},
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/clang++  -I/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock/include -I/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/include -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest -g -std=c++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/clang++  -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock/include -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/include -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest -g -std=c++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/clang++  -I/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/include -I/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest -g -std=c++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/clang++  -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/include -isystem /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest -g -std=c++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/Users/willmbp/Desktop/starter_template/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+}
+]
