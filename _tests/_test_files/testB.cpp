@@ -13,7 +13,7 @@ bool test_stub(bool debug = false)
 
 TEST(TEST_STUB, TestStub) {
   
-  //EXPECT_EQ(0, <your individual test functions are called here>);
+  //EXPECT_EQ(0, <individual test functions are called here>);
 
   EXPECT_EQ(1, test_stub(false));
 }
