@@ -9,7 +9,7 @@
 
 <br><br>
 
-- Implemented:
+- <strong>Implemented:</strong>
 
   - BTree Data Structure: 
     - Crux of the Database, where all the information for binary files will be held 
