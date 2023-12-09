@@ -7,7 +7,7 @@ const int MAX_BUFFER = 200;
 
 const char ALPHA[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const char DIGITS[] = "0123456789";
-const char OPERATORS[] = "><=!+-%&|()*/";
+const char OPERATORS[] = "><=!+-%&|()*/\"\'";
 const char SPACES[] = {' ', '\t', '\n', '\0'};
 const char PUNC[] = "?.,:;'`~!";
 const int START_DOUBLE = 0;
