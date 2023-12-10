@@ -22,13 +22,11 @@
     - Simple tokenizer that takes in a C-String and splits each word up into a token 
     - Token types: Alphanumeric, Digit, Operators, Spaces, Punctuation 
     - Tokenizes by moving through a finite state table to examine and group chars in a C-String 
-    - Finite State Tables have various success and fail states: 
-    - Fail State: Tokenizer has found a char different than the current group and the token is completed 
-    - Success State: Tokenizer is still gathering and adding characters to a current token under the same group
+    - Finite State Tables have various success and fail states: Fail State: Tokenizer has found a char different than the current group and the token is completed. Success State: Tokenizer is still gathering and adding characters to a current token under the same group
       <br><br>
 
 - Partly implemented:
-  - what features have not been implemented
+  - Parser - SQL command line parser
 
 <br><br>
 

@@ -37,7 +37,7 @@ void test_s_tokenize_simple()
       //"Pain and suffering";
       // "";
       // "3.14....................";
-      "So, it was the night of october 17th. pi was still 3.14. sigh! 2.";
+      " \"So, it was the night of october 17th. pi was still 3.14. sigh! 2.\"";
   // "2";
   //  char s[] = "it";
   cout << "\n\ntokenizing: [" << s << "]\n"
