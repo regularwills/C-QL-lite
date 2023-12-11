@@ -3,6 +3,10 @@
 #include <iomanip>
 using namespace std;
 
+/*
+=====  Basic test for the Database here  =====
+
+*/
 
 bool basic_test(bool debug = true){
   if (debug){
