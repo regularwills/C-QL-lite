@@ -1,6 +1,11 @@
 #ifndef PAIR_H
 #define PAIR_H
 
+//--------------------------------------------------------------------------------
+/*    Pair: Simple class that holds a key and a value and can be compared by the key
+*/
+//--------------------------------------------------------------------------------
+
 template <typename K, typename V>
 struct Pair{
     K key;
