@@ -3,7 +3,7 @@
 
 #include <ostream>
 #include <string>
-#include "../btree_array_functions/btree_array_functions.h"
+#include "btree_array_functions.h"
 
 using namespace std;
 
@@ -13,13 +13,12 @@ class BTree
 public:
     BTree(bool dups = false);
     BTree(T *a, int size, bool dups = false);
-    //big three:
     BTree(const BTree<T>& other);
     ~BTree();
+
     BTree<T>& operator =(const BTree<T>& RHS);
 
     void insert(const T& entry);                //insert entry into the tree
-    void remove(const T& entry);                //remove entry from the tree
 
     void clear_tree();                          //clear this object
                                                 //  (delete all nodes etc.)
@@ -36,7 +35,6 @@ public:
                                                 //              in the tree
     bool empty() const;                         //true if the tree is empty
 
-    bool is_valid(){return true;}
                                                 //print a readable version of
                                                 //                  the tree
     void print_tree(int level = 0, ostream &outs=cout) const;
