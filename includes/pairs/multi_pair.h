@@ -4,7 +4,7 @@
 #include <vector>
 
 //--------------------------------------------------------------------------------
-/*    Multi_Pair: Simple class that holds a key and a vector value and can be compared
+/*    Multi_Pair: Simple class that holds a key and a vector value and can be       compared
 /*         to other pairs through the key. Vector value allows for mutliple values under
 /*         the same key
 */

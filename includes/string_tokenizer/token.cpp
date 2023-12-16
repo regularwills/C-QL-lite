@@ -3,15 +3,19 @@
 Token::Token(){
     _token.clear();
     _type = 0;
+    _presedence = 0;
+    
 }
 Token::Token(string str, int type){
     _token.clear();
     _token = str;
-    _type = type;
+    _type = type;  
 }
+
 int Token::type() const{
     return _type;
 }
+
 string Token::type_string() const{   
     string s;
     switch(_type){
@@ -44,10 +48,16 @@ string Token::type_string() const{
     return s;
 } 
 
-
 string Token::token_str() const{
-    // cout <<_token.size() << "token size" << endl;
     return _token;
+}
+
+int Token::get_presedence() const{
+    return _presedence;
+}
+
+void Token::set_presedence(int p){
+    _presedence = p;
 }
 
 ostream& operator <<(ostream& outs, const Token& t){

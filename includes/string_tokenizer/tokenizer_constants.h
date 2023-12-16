@@ -7,8 +7,8 @@ const int MAX_BUFFER = 200;
 
 const char ALPHA[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const char DIGITS[] = "0123456789";
-const char OPERATORS[] = "><=!+-%&|()*/\"\'";
-const char SPACES[] = {' ', '\t', '\n', '\0'};
+const char OPERATORS[] = "><=!+-%&|()";
+const char SPACES[] = {' ', '\t', '\n', '\0', '\"'};
 const char PUNC[] = "?.,:;'`~!";
 const int START_DOUBLE = 0;
 const int START_SPACES = 4;
@@ -25,5 +25,15 @@ const int TOKEN_PUNC = 5;
 
 const int TOKEN_UNKNOWN = -1;
 const int TOKEN_END = -2;
+
+//Token presedence based on token types (for infix to postfix conversion)
+enum TOKEN_PRECEDENCE {
+    REG_TOKEN = 0,
+    LPAREN = 1,
+    RPAREN = 1,
+    RELATIONAL = 2,
+    LOGICAL_OR = 3,
+    LOGICAL_AND = 4
+};
 
 #endif//CONSTANTS_H

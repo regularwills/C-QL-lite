@@ -28,7 +28,6 @@ bool STokenizer::more(){
 }            
 STokenizer& operator >> (STokenizer& s, Token& t){
     if(s.done()){
-        cout << __LINE__ << endl;
         return s;
     }
 
@@ -118,6 +117,9 @@ bool STokenizer::get_token(int &start_point, string& token){
 
     return more();
 }
+
+
+//Helper Functions for the Class table
 void STokenizer::init_table(int _table[][MAX_COLUMNS]){
     for(int i = 0; i < MAX_ROWS; i++){
         for(int j = 0; j < MAX_COLUMNS; j++){
@@ -152,6 +154,8 @@ void STokenizer::mark_cells(int row, int _table[][MAX_COLUMNS], const char colum
 void STokenizer::mark_cell(int row, int table[][MAX_COLUMNS], int column, int state){
     _table[row][column] = state;
 }
+
+//For Debugging
 void STokenizer::print_table(int _table[][MAX_COLUMNS]){
     for(int i = 0; i <= 7; i++){
         for(int j = 0; j < MAX_COLUMNS; j++){
