@@ -101,33 +101,12 @@ vector<V>& MMap<K,V>::get(const K& key){
     return mmap.get(key);
 }
 
-template <typename K, typename V>
-int MMap<K,V>::count(const K& key){
-    int count = 0;
-    MMap<K,V>::Iterator it = mmap.begin();
-    for (; it != mmap.end(); it++){
-        count++;
-    }
-    return count;
-}
 
 template <typename K, typename V>
 bool MMap<K,V>::is_valid(){
     return mmap.is_valid();
 }
 
-template <typename K, typename V>
-void MMap<K,V>::print_lookup(){
-    assert(!mmap.empty());
-    
-    //Walking through each node and printing the mmap as a table
-    MMap<K,V>::Iterator it = mmap.begin();
-
-    while (it != mmap.end()){
-        cout << *it << endl;
-        it++;
-    }
-}
 
 #endif//MULTIMAP_H
 
