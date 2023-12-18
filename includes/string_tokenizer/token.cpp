@@ -12,6 +12,13 @@ Token::Token(string str, int type){
     _type = type;  
 }
 
+Token::Token(string str, int type, int presedence){
+    _token.clear();
+    _token = str;
+    _type = type;
+    _presedence = presedence;
+}
+
 int Token::type() const{
     return _type;
 }

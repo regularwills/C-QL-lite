@@ -27,7 +27,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                 Token *temp = tokens_stack.top();
 
                 // While this token is bigger than whats on the stack, pop the smaller guy to the queue
-                while (temp->type() <= RELATIONAL && temp->type() != LPAREN)
+                while (temp->get_presedence() <= RELATIONAL && temp->get_presedence() != LPAREN)
                 {
                     tokens_stack.pop();
                     postfix_queue.push(temp);
@@ -42,7 +42,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                     }
                 }
             }
-            tokens_stack.push(new Relational(token));
+            tokens_stack.push(new Token(token, TOKEN_OPERATOR, RELATIONAL));
         }
         else if (token == "or")
         {
@@ -51,7 +51,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                 Token *temp = tokens_stack.top();
 
                 // While this token is bigger than whats on the stack, pop the smaller guy to the queue
-                while (temp->type() <= LOGICAL_OR && temp->type() != LPAREN)
+                while (temp->get_presedence() <= LOGICAL_OR && temp->get_presedence() != LPAREN)
                 {
                     tokens_stack.pop();
                     postfix_queue.push(temp);
@@ -66,7 +66,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                     }
                 }
             }
-            tokens_stack.push(new Logical(token));
+            tokens_stack.push(new Token(token, TOKEN_ALPHA, LOGICAL_OR));
         }
         else if (token == "and")
         {
@@ -75,7 +75,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                 Token *temp = tokens_stack.top();
 
                 // While this token is bigger than whats on the stack, pop the smaller guy to the queue
-                while (temp->type() <= LOGICAL_AND && temp->type() != LPAREN)
+                while (temp->get_presedence() <= LOGICAL_AND && temp->get_presedence() != LPAREN)
                 {
                     tokens_stack.pop();
                     postfix_queue.push(temp);
@@ -88,7 +88,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                     }
                 }
             }
-            tokens_stack.push(new Logical(token));
+            tokens_stack.push(new Token(token, TOKEN_ALPHA, LOGICAL_AND));
         }
         else if (token == "(" || token == ")")
         {
@@ -97,7 +97,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
             {
                 // This token can sit on any other token in the stack
                 //  it can also be sat on top of by any other token
-                tokens_stack.push(new Left_parenthesis(token));
+                tokens_stack.push(new Token(token, TOKEN_OPERATOR, LPAREN));
             }
             // Token specifically a right parenthesis
             else
@@ -118,15 +118,7 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
         }
         else
         { // Regular tokens go straight to the queue
-            postfix_queue.push(new TokenStr(token));
-
-            cout << postfix_queue.size() << endl;
-
-            Token *temp = postfix_queue.front();
-            
-            cout << temp->type() << endl;
-            cout << temp->token_str() << endl;
-            cout << "End of this token" << endl;
+            postfix_queue.push(new Token(token, TOKEN_UNKNOWN, REG_TOKEN));
         }
     }
     // Infix string is done iterating, pop everything from the stack onto the queue
