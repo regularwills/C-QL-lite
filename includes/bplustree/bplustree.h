@@ -82,7 +82,6 @@ public:
     void copy_tree(const BPlusTree<T>& other, BPlusTree<T>*& last_node);
 
     void insert(const T& entry);   //insert entry into the tree
-    void remove(const T& entry);   //remove entry from the tree
     void clear_tree();             //clear this object (delete all nodes etc.)
 
     bool contains(const T& entry) const; //true if entry can be found
@@ -258,11 +257,6 @@ void BPlusTree<T>::insert(const T& entry){
         fix_excess(0);
     }
 }                                                           //insert entry into the tree
-
-template <typename T>
-void BPlusTree<T>::remove(const T& entry){
-
-}                                                           //remove entry from the tree
 
 //GTG
 template <typename T>
@@ -609,19 +603,6 @@ void BPlusTree<T>::fix_excess(int i){
     }
 
 }              //fix excess in child i
-
-//remove element functions:
-template <typename T>
-void BPlusTree<T>::loose_remove(const T& entry){
-
-}                                   //allows MINIMUM-1 data elements
-                                    //  in the root
-
-template <typename T>
-BPlusTree<T>* BPlusTree<T>::fix_shortage(int i){
-
-}                                       //fix shortage in child i
-                                        // and return the smallest key in this subtree
 
 template <typename T>
 BPlusTree<T>* BPlusTree<T>::get_smallest_node(){

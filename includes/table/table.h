@@ -6,11 +6,16 @@
 #include <string>
 #include <cstdlib>
 #include "typedefs.h"
-// #include "shuntingyard.h"
-// #include "../stl_utils/vector_utilities.h"
-// #include "../binary_files/utilities.h"
-// #include "../binary_files/file_record.h"
-// #include "../token/token_children.h"
+#include "shuntingyard.h"
+#include "../stl_utils/vector_utilities.h"
+#include "../binary_files/utilities.h"
+#include "../binary_files/file_record.h"
+#include "../token/token_children.h"
+
+
+#include <stack>
+#include <queue>
+#include "../string_tokenizer/stokenize.h"
 
 // using namespace std;
 
@@ -50,5 +55,8 @@ class Table {
       long _last_record_number;
       bool _empty;
 };
+
+
+void infix_to_postfix(vector<string>& infix_expression, queue <Token*>& postfix_queue);
 
 #endif//TABLE_H

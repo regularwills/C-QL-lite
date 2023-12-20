@@ -61,60 +61,10 @@ bool test_tokenize(bool debug = false)
   return true;
 }
 
-// ------------------- Btree Tests -------------------
+// ------------------- BPlustree Tests -------------------
 bool basic_test(){
-  int a[] = {43, 20, 96, 100, 69};
-  BTree<int> bt(a, 5);
-  cout << "Here is the tree: " << endl
-      << bt << endl;
-
-  cout <<"in order: "<< bt.in_order() << endl;
-  cout << "adding 10, 50, 200: " << endl;
-  bt.insert(10);
-  bt.insert(50);
-  bt.insert(200);
-  cout << "in order " << bt.in_order() << endl;
-  cout << "Here is the tree: " << endl
-       << bt << endl;
-  cout << "bt.contains(20): " << boolalpha << bt.contains(20) << endl;
-  cout << "bt.contains(0): " << boolalpha << bt.contains(0) << endl;
-  cout << "bt.find(20): " << *(bt.find(20)) << endl;
-  cout << "bt.find(0): " << bt.find(0) << endl;
-  
-  
-  cout << "\n\nexcess + grow: " << endl;
-
-  bt.insert(12);
-  cout << "adding 12: " << endl;
-  cout << "Here is the tree: " << endl
-       << bt << endl;
-  cout << "in order " << bt.in_order() << endl;
-  bt.insert(300);
-  cout << "added 300: " << endl;
-  cout << "Here is the tree: " << endl
-       << bt << endl;
-  cout << "in order " << bt.in_order() << endl;
-  bt.insert(55);
-  cout << "added 55: " << endl;
-  cout << "Here is the tree: " << endl
-       << bt << endl;
-  cout << "in order " << bt.in_order() << endl;
 
 
-  // cout << "\n\nremove test: " << endl;
-
-  // int b[] = {43, 20, 96, 10, 50, 200, 12, 300, 55, 100, 69};
-  // for (int i = 0; i < 11; i++){
-  //   cout << "\n removing: [" << b[i] << "]" << endl;
-  //   bt.remove(b[i]);
-  //   cout << bt << endl;
-  //   cout <<"in order: "<< bt.in_order() << endl;
-  //   cout << "\nbt.empty()?" <<boolalpha<<bt.empty() << endl;
-  // }
-
-
-  // cout << "\nremove on empty:" << endl;
-  // bt.remove(666);
   return true;
 }
 
