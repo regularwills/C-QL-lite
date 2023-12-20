@@ -1,6 +1,7 @@
-#ifndef BTREE_ARRAY_FUNCTIONS_H
-#define BTREE_ARRAY_FUNCTIONS_H
+#ifndef BTREE_ARRAY_FUNCS_H
+#define BTREE_ARRAY_FUNCS_H
 
+#include <iostream>
 #include <ostream>
 #include <vector>
 
@@ -152,6 +153,7 @@ bool is_le(const T data[], int n, const T& item){ //item <= all data[i]
     }
     return true;
 }
+
 //-------------- Vector Extra operators: ---------------------
 
 template <typename T>

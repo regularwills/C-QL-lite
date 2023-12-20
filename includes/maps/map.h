@@ -1,22 +1,84 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "../btree/btree.h"
-#include "../pairs/pair.h"
+#include "../bplustree/bplustree.h"
+template <typename K, typename V>
+struct Pair{
+    K key;
+    V value;
 
-//Wrapper for the Btree class
+    Pair(const K& k=K(), const V& v=V()): key(k), value(v){}
+    
+    friend ostream& operator <<(ostream& outs, const Pair<K, V>& print_me){
+        outs << "["<<print_me.key<<":"<<print_me.value<<"]";
+        return outs;
+    }
+
+    //Operators all comparing the keys
+    friend bool operator ==(const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return lhs.key == rhs.key;
+    }
+    friend bool operator !=(const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return lhs.key != rhs.key;
+    }
+    friend bool operator < (const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return lhs.key < rhs.key;
+    }
+    friend bool operator > (const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return lhs.key > rhs.key;
+    }
+    friend bool operator <= (const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return lhs.key <= rhs.key;
+    }
+    friend bool operator >= (const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return lhs.key >= rhs.key;
+    }
+    friend Pair<K, V> operator + (const Pair<K, V>& lhs, const Pair<K, V>& rhs){
+        return rhs; //Overwrite lefthand side
+    }
+};
 
 template <typename K, typename V>
-class Map {
+class Map
+{
 public:
+    typedef BPlusTree<Pair<K, V> > map_base;  
+    class Iterator{
+    public:
+        friend class Map;
+        Iterator(typename map_base::Iterator it = NULL): _it(it){}
+        Iterator operator ++(int unused){
+            _it++;
+            return _it;
+        }
+        Iterator operator ++(){
+            ++_it;
+            return _it;
+        }
+        Pair<K, V> operator *(){
+             return *_it;
+        }
+        friend bool operator ==(const Iterator& lhs, const Iterator& rhs){
+            return lhs._it == rhs._it;
+        }
+        friend bool operator !=(const Iterator& lhs, const Iterator& rhs){
+            return lhs._it != rhs._it;
+        }
+    private:
+        typename map_base::Iterator _it;
 
-    typedef BTree<Pair<K, V> > map_base;  
-
+    };
 //  Constructor
     Map():key_count(0), map(map_base()){}
 
+//  Iterators
+    Iterator begin();
+    Iterator end();
+    Iterator lower_bound(const K& key);  
+    Iterator upper_bound(const K& key);  
 
 //  Capacity
+
     int size() const;
     bool empty() const;
 
@@ -28,11 +90,12 @@ public:
 
 //  Modifiers
     void insert(const K& k, const V& v);
+    void erase(const K& key);
     void clear();
     V get(const K& key);
 
 //  Operations:
-    K* find(const K& key);
+    Iterator find(const K& key);
     bool contains(const Pair<K, V>& target) const;
 
     bool is_valid(){return map.is_valid();}
@@ -43,9 +106,28 @@ public:
     }
 private:
     int key_count;
-    BTree<Pair<K, V> > map;
+    BPlusTree<Pair<K, V> > map;
 };
 
+//  Iterators
+template <typename K, typename V>
+typename Map<K,V>::Iterator Map<K,V>::begin(){
+    return map.begin();
+}
+template <typename K, typename V>
+typename Map<K,V>::Iterator Map<K,V>::end(){
+    return map.end();
+}
+
+template <typename K, typename V>
+typename Map<K,V>::Iterator Map<K,V>::lower_bound(const K& key){
+   return  map.lower_bound(key);
+}
+
+template <typename K, typename V>
+typename Map<K,V>::Iterator Map<K,V>::upper_bound(const K& key){
+   return map.upper_bound(key);
+}  
 
 //  Capacity
 template <typename K, typename V>
@@ -80,6 +162,10 @@ void Map<K,V>::insert(const K& k, const V& v){
     map.insert(Pair<K,V>(k,v));
 }
 
+template <typename K, typename V>
+void Map<K,V>::erase(const K& key){
+    key_count--;
+}
  
 template <typename K, typename V>
 void Map<K,V>::clear(){
@@ -94,7 +180,7 @@ V Map<K,V>::get(const K& key){
 
 //  Operations:
 template <typename K, typename V>
-K* Map<K,V>::find(const K& key){
+typename Map<K,V>::Iterator Map<K,V>::find(const K& key){
     return map.find(key);
 }
 
