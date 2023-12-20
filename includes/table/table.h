@@ -12,7 +12,6 @@
 #include "../string_tokenizer/token.h"
 #include "../string_tokenizer/stokenize.h"
 
-// using namespace std;
 
 //File name will be the same name as the table name
 class Table {
