@@ -2,19 +2,23 @@
 
 void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
 {
-    // For debugging
-    cout << "Here is the infix expression: ";
-    for (int i = 0; i < infix.size(); i++)
+    bool debug = false;
+
+    // DEBUG: Print out the infix expression
+    if (debug)
     {
-        cout << infix[i] << " ";
+        cout << "Here is the infix expression: ";
+        for (int i = 0; i < infix.size(); i++)
+        {
+            cout << infix[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
 
     stack<Token *> tokens_stack;
     string token;
 
-    // Go through each character of the infix and create a Token
-    //  based on its type
+    // Go through each character of the infix and create a Token based on its type
     for (int i = 0; i < infix.size(); i++)
     {
         token = infix[i];
@@ -80,10 +84,12 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
                     tokens_stack.pop();
                     postfix_queue.push(temp);
 
-                    if (!tokens_stack.empty()){
+                    if (!tokens_stack.empty())
+                    {
                         temp = tokens_stack.top();
                     }
-                    else{
+                    else
+                    {
                         break;
                     }
                 }
@@ -93,22 +99,21 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
         else if (token == "(" || token == ")")
         {
             // Token is a parenthesis
-            if (token == "(")
+            if (token == "(") // specifically a left parenthesis
             {
                 // This token can sit on any other token in the stack
                 //  it can also be sat on top of by any other token
                 tokens_stack.push(new Token(token, TOKEN_OPERATOR, LPAREN));
             }
-            // Token specifically a right parenthesis
-            else
+            else // Token specifically a right parenthesis
             {
-                // Stack is not empty and SHOULD contain a matching left parenthesis
+                // Stack is not empty and **SHOULD** contain a matching left parenthesis
                 //  pop all the items until you get to the matching left paren
                 Token *temp = tokens_stack.top();
                 tokens_stack.pop();
 
                 // While this token is bigger than whats on the stack, pop the smaller guy to the queue
-                while (temp->type() != LPAREN && !tokens_stack.empty())
+                while (temp->get_presedence() != LPAREN && !tokens_stack.empty())
                 {
                     postfix_queue.push(temp);
                     temp = tokens_stack.top();
@@ -119,6 +124,14 @@ void infix_to_postfix(vector<string> &infix, queue<Token *> &postfix_queue)
         else
         { // Regular tokens go straight to the queue
             postfix_queue.push(new Token(token, TOKEN_UNKNOWN, REG_TOKEN));
+
+            // DEBUGGING: Show me the token that is being pushed to the queue
+            if (debug)
+            {
+                Token *temp = postfix_queue.front();
+                cout << "TOKEN |" << temp->token_str() << "|" << endl;
+                cout << "PREESENDENCE |" << temp->get_presedence() << "|" << endl;
+            }
         }
     }
     // Infix string is done iterating, pop everything from the stack onto the queue
