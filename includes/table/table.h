@@ -5,16 +5,14 @@
 #include <iomanip>
 #include <string>
 #include <cstdlib>
+#include <stack>
+#include <queue>
+
 #include "typedefs.h"
-#include "shuntingyard.h"
 #include "../stl_utils/vector_utilities.h"
 #include "../binary_files/utilities.h"
 #include "../binary_files/file_record.h"
-#include "../token/token_children.h"
-
-
-#include <stack>
-#include <queue>
+#include "../string_tokenizer/token.h"
 #include "../string_tokenizer/stokenize.h"
 
 // using namespace std;
@@ -56,7 +54,7 @@ class Table {
       bool _empty;
 };
 
-
+//Convert a string expression with Operators (=+<><=>=) and Operands (field names and values) into a postfix queue of tokens
 void infix_to_postfix(vector<string>& infix_expression, queue <Token*>& postfix_queue);
 
 #endif//TABLE_H

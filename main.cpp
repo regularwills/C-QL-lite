@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "includes/shunting_yard/shuntingyard.h"
-
+#include "includes/table/table.h"
 
 using namespace std;
 

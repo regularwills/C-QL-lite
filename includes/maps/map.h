@@ -162,10 +162,10 @@ void Map<K,V>::insert(const K& k, const V& v){
     map.insert(Pair<K,V>(k,v));
 }
 
-template <typename K, typename V>
-void Map<K,V>::erase(const K& key){
-    key_count--;
-}
+// template <typename K, typename V>
+// void Map<K,V>::erase(const K& key){
+//     key_count--;
+// }
  
 template <typename K, typename V>
 void Map<K,V>::clear(){

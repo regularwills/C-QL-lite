@@ -107,8 +107,8 @@ void Table::insert_into(vector<string>& record_info){
 Table& Table::select(const vectorstr& fields, vectorstr& infix_condition){
     //Take the infix_conditions and run it through the shunting yard algo
 
-    Queue<Token *> postfix_condition;
-    shuntingyard_algo(infix_condition, postfix_condition);
+    queue<Token *> postfix_condition;
+    infix_to_postfix(infix_condition, postfix_condition);
 
     //Return the table from the postfix select
     return select(fields, postfix_condition);
@@ -128,7 +128,8 @@ Table& Table::select(const vectorstr& fields, queuetokens& postfix_queue){
     for (int i = 0; !postfix_queue.empty(); i++){
         
         //Popping token from the top of queue and sorting to appropriate vectors
-        Token* token = postfix_queue.pop();
+        Token* token = postfix_queue.front();
+        postfix_queue.pop();
 
         //cout << token->token_str() << endl;
 
@@ -285,21 +286,21 @@ Table& Table::select(const vectorstr& fields, const string& field,
 //GTG
 //Read and output all the files from a .tbl binary file
 Table& Table::select_all(){
-    // fstream file;
-    // FileRecord r;
+    fstream file;
+    FileRecord r;
 
-    // open_fileRW(file, (_name+".tbl").c_str());
+    open_fileRW(file, (_name+".tbl").c_str());
 
-    // cout << setw(25) << "record";
-    // for (int i = 0; i < _field_names.size(); i++){
-    //     cout << setw(25) << _field_names[i];
-    // }
-    // cout << endl;
-    // for (int i = 0; i <= _last_record_number; i++){
-    //     cout << setw(25) << i;                  // Record num
-    //     r.read(file,i);                         // grab the record
-    //     cout << r << endl;                      // output the used_records fields
-    // }
+    cout << setw(25) << "record";
+    for (int i = 0; i < _field_names.size(); i++){
+        cout << setw(25) << _field_names[i];
+    }
+    cout << endl;
+    for (int i = 0; i <= _last_record_number; i++){
+        cout << setw(25) << i;                  // Record num
+        r.read(file,i);                         // grab the record
+        cout << r << endl;                      // output the used_records fields
+    }
     return *this;
 }
 

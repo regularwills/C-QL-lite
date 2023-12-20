@@ -154,21 +154,4 @@ bool is_le(const T data[], int n, const T& item){ //item <= all data[i]
     return true;
 }
 
-//-------------- Vector Extra operators: ---------------------
-
-template <typename T>
-ostream& operator <<(ostream& outs, const vector<T>& list){ //print vector list
-    for (int i = 0; i < list.size(); i ++){
-        outs << "[" << list[i] << "]";
-    }
-    return outs;
-}
-
-template <typename T>
-vector<T>& operator +=(vector<T>& list, const T& addme){ //list.push_back addme
-    //Adding this item to the vector list
-    list.push_back(addme);
-    return list;
-}
-
 #endif//BTREE_ARRAY_FUNCTIONS_H

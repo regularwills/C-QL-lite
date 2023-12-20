@@ -35,7 +35,7 @@ public:
     friend ostream& operator<<(ostream& outs, const FileRecord& r);
 
 
-private:
+//private:
     static const int MAX = 100;
     int recno;
     char _record[MAX+1][MAX+1]; //NULL char
