@@ -1,13 +1,10 @@
 #ifndef BPLUSTREE_H
 #define BPLUSTREE_H
 
-#include <ostream>
 #include <iomanip>
 #include <string>
 #include <cassert>
 #include "btree_array_functions.h"
-
-using namespace std;
 
 template <class T>
 class BPlusTree
@@ -180,7 +177,7 @@ BPlusTree<T>::BPlusTree(T *a, int size, bool dups){
     }
 }
 
-//big three:
+//----------------- BIG THREE ------------------------------------
 template <typename T>
 BPlusTree<T>::BPlusTree(const BPlusTree<T>& other):
                         data_count(0), child_count(0){
@@ -205,6 +202,8 @@ BPlusTree<T>& BPlusTree<T>::operator =(const BPlusTree<T>& RHS){
     return *this;
 }
 
+//----------------- BIG THREE ------------------------------------
+
 template <typename T>
 void BPlusTree<T>::copy_tree(const BPlusTree<T>& other){
     //Copy this other nodes data into this objects data[]
@@ -214,7 +213,7 @@ void BPlusTree<T>::copy_tree(const BPlusTree<T>& other){
 
 template <typename T>
 void BPlusTree<T>::copy_tree(const BPlusTree<T>& other, BPlusTree<T>*& last_node){
-    //assert(empty);
+
     copy_array(data, other.data, data_count, other.data_count);
     
     //Set the same child count for this node as the other node
@@ -235,7 +234,7 @@ void BPlusTree<T>::copy_tree(const BPlusTree<T>& other, BPlusTree<T>*& last_node
     }
 }
 
-//GTG
+//Insert entry into the tree
 template <typename T>
 void BPlusTree<T>::insert(const T& entry){
     //Inserting the entry into the tree
@@ -256,9 +255,9 @@ void BPlusTree<T>::insert(const T& entry){
         //Promote the middle val in growth to the root as the only value
         fix_excess(0);
     }
-}                                                           //insert entry into the tree
+}                                                           
 
-//GTG
+//Clear this object and delete all the nodes
 template <typename T>
 void BPlusTree<T>::clear_tree(){
     //No deletion, just closing the data[] by setting size to zero
@@ -275,7 +274,7 @@ void BPlusTree<T>::clear_tree(){
     //All the children have been deleted and subsets are pointing to null
     // so now there are no children
     child_count = 0;
-}                                                           //clear this object (delete all nodes etc.)
+}                                                           
 
 template <typename T>
 bool BPlusTree<T>::contains(const T& entry) const{
@@ -295,6 +294,7 @@ bool BPlusTree<T>::contains(const T& entry) const{
     }
 }       
 
+//Return a reference to entry
 template <typename T>
 T& BPlusTree<T>::get(const T& entry){
     //If entry is not in the tree, add it to the tree
@@ -305,9 +305,9 @@ T& BPlusTree<T>::get(const T& entry){
         insert(entry);
 
     return get_existing(entry);
-}                                                           //return a reference to entry
+}                                                           
 
-
+//Return a reference to this entry
 template <typename T>
 const T& BPlusTree<T>::get(const T& entry)const{
     int i = first_ge(data, data_count, entry);
@@ -325,8 +325,9 @@ const T& BPlusTree<T>::get(const T& entry)const{
     else {
         return subset[i]->get(entry);
     }
-}                                                   //return a reference to entry
+}                                                   
 
+//Return a reference to entry, if entry is not in the tree, assert
 template <typename T>
 T& BPlusTree<T>::get_existing(const T& entry){
     assert(contains(entry));
@@ -348,8 +349,9 @@ T& BPlusTree<T>::get_existing(const T& entry){
         //or just return true?
     else //not found yet...
         return subset[i]->get(entry);
-}                                                           //return a reference to entry
+} 
 
+//Return an iterator to this key. NULL if not there.
 template <typename T>
 typename BPlusTree<T>::Iterator BPlusTree<T>::find(const T& key){
     int i = first_ge(data, data_count, key);
@@ -366,20 +368,18 @@ typename BPlusTree<T>::Iterator BPlusTree<T>::find(const T& key){
     else {
         return subset[i]->find(key);
     }
-}                                                            //return an iterator to this key.
+}
 
-template <typename T>                                        //     NULL if not there.
+template <typename T>                                        
 typename BPlusTree<T>::Iterator BPlusTree<T>::lower_bound(const T& key){
     BPlusTree<T>::Iterator it = begin();
 
     while (it != end()){
         if (*it >= key){
-            //cout << "Returning it here" << endl;
             return it;
         }
         it++;
     }
-    //cout << "Returning NULL here: LB" << endl;
     return Iterator(NULL);
 }                                       //return first that goes NOT BEFORE
                                         // key entry or next if does not
@@ -482,7 +482,7 @@ bool BPlusTree<T>::is_valid(){
         if (!leaf_data_exists){
             return false;
         }
-    }//???? work on this
+    }
  
     //Check validity of each subsets own tree
     for (int i = 0; i < child_count; i++){
@@ -495,7 +495,7 @@ bool BPlusTree<T>::is_valid(){
 
 template <typename T>
 string BPlusTree<T>::in_order(){
-    // traverse the tree in an inorder fashion, return a 
+// traverse the tree in an inorder fashion, return a 
 // string of all the data items with vertical delimiters
     string in_order = "";
 
@@ -602,7 +602,7 @@ void BPlusTree<T>::fix_excess(int i){
         subset[i]->next = new_child;
     }
 
-}              //fix excess in child i
+} //fix excess in child i
 
 template <typename T>
 BPlusTree<T>* BPlusTree<T>::get_smallest_node(){

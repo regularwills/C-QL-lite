@@ -1,6 +1,9 @@
 #ifndef PAIR_H
 #define PAIR_H
 
+#include <ostream>
+using namespace std;
+
 //--------------------------------------------------------------------------------
 /*    Pair: Simple class that holds a key and a value and can be compared by the key
 */

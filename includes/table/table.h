@@ -1,9 +1,6 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include <fstream>
-#include <iomanip>
-#include <string>
 #include <cstdlib>
 #include <stack>
 #include <queue>

@@ -16,7 +16,7 @@ bool file_exists(const char filename[]){
 void open_fileRW(fstream& f, const char filename[]) throw(char*){
     const bool debug = false;
     //openning a nonexistent file for in|out|app causes a fail()
-    //  so, if the file does not exist, create it by openning it for
+    //  so, if the file does not exist, create it by openning it
     if (!file_exists(filename)){
         //create the file
         f.open(filename, std::fstream::out|std::fstream::binary);

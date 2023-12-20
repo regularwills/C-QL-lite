@@ -3,10 +3,10 @@
 
 #include <vector>
 
-//--------------------------------------------------------------------------------
-/*    Multi_Pair: Simple class that holds a key and a vector value and can be       compared
-/*         to other pairs through the key. Vector value allows for mutliple values under
-/*         the same key
+/*--------------------------------------------------------------------------------
+* Multi_Pair: Simple class that holds a key and a vector value and can be compared        
+* to other pairs through the key. Vector value allows * for mutliple values under
+* the same key
 */
 //--------------------------------------------------------------------------------
 
@@ -17,14 +17,6 @@ struct MPair{
     K key;
     vector<V> value_list;
 
-    //--------------------------------------------------------------------------------
-    /*    MPair CTORs:
-     *
-     *  - default CTOR / CTOR with a key and no value: this will create an empty vector
-     *  - CTOR with a key AND a value: pushes the value into the value_list
-     *  _ CTOR with a key and a vector of values (to replace value_list)
-     */
-    //--------------------------------------------------------------------------------
     MPair(const K& k=K()){
         key = k;
     }

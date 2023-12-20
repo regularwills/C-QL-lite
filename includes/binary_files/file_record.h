@@ -1,18 +1,14 @@
 #ifndef FILE_RECORD_H
 #define FILE_RECORD_H
 
-#include <iostream>
-#include <iomanip>
 #include <string.h>
-#include <vector>
 #include "utilities.h"
+
 
 using namespace std;
 
 class FileRecord{
 public:
-    //when you construct a FileRecord, it's either empty or it
-    // contains a word
     FileRecord(){
         _record[0][0] = '\0';
         recno = -1;

@@ -1,18 +1,11 @@
 #ifndef STOKENIZE_H
 #define STOKENIZE_H
 
-#include <cmath>
-#include <iostream>
-#include <iomanip>
-#include <set>
-#include <vector>
 #include <cstring>
 #include <string.h>
 
 #include "token.h"
 #include "tokenizer_constants.h"
-
-using namespace std;
 
 class STokenizer
 {
