@@ -10,7 +10,7 @@ class SQL{
 public:
     SQL();
     Table command(const string input);
-    vectorlong select_recnos();
+    vector <long> select_recnos();
 
 private:
     Table table;

@@ -11,6 +11,7 @@
 #include "../string_tokenizer/token.h"
 #include "../maps/map.h"
 #include "../maps/multi_map.h"
+#include "../state_machine/state_machine_functions.h"
 
 class Parser {
  public:
